@@ -81,3 +81,23 @@ buildings = Table('buildings', metadata,
     Column('BasementGarage', Integer), # Was "BasementGrage"
 )
 
+sales = Table('sales', metadata,
+    # Composite Primary Key of (ParcelNumber, CardNumber)
+    Column('ParcelNumber', ForeignKey('properties.ParcelNumber'), primary_key=True),
+    Column('Sequence', String, primary_key=True), # Integer sequence?
+    Column('DocumentNumber', String),
+    Column('SaleUseCode', String),
+    Column('SaleVerificationCode', String),
+    Column('SaleDate', Date),
+    Column('SaleAmount', Integer),
+)
+
+zones = Table('zones', metadata,
+    # Composite Primary Key of (ParcelNumber, CardNumber, TempZoning, Zoning)
+    # Or (ParcelNumber, CardNumber, TempZoning / Zoning)?
+    Column('ParcelNumber', ForeignKey('properties.ParcelNumber'), primary_key=True),
+    Column('CardNumber', String, primary_key=True),
+    Column('TempZoning', String, primary_key=True),
+    Column('Zoning', String, primary_key=True),
+    Column('ZoningPercent', Float),
+)
