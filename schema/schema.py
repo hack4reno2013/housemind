@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from sqlalchemy import MetaData, Table, Column, ForeignKey, UniqueConstraint
+from sqlalchemy import MetaData, Table, Column, ForeignKey, UniqueConstraint, PrimaryKey
 from sqlalchemy.types import Integer, Date, String, Float, Integer, Boolean
 
 metadata = MetaData()
@@ -38,4 +38,16 @@ properties = Table('properties', metadata,
     Column('NewParcelRoll', String),
     Column('InspectionDate', Date),
     Column('Closed', Boolean),
+)
+
+areas = Table('areas', metadata,
+    # Composite Primary Key of (ParcelNumber, CardNumber, Sequence, Area)
+    Column('ParcelNumber', ForeignKey('properties.ParcelNumber'), primary_key=True),
+    Column('CardNumber', String, primary_key=True),
+    Column('Sequence', String, primary_key=True), # Integer sequence?
+    Column('Area', String, primary_key=True),
+    Column('PercentUsable', Float),
+    Column('AlternateType', String),
+    Column('AlternatePercentage', Float),
+    Column('Quality', String),
 )
