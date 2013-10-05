@@ -43,7 +43,7 @@ properties = Table('properties', metadata,
 areas = Table('areas', metadata,
     # Composite Primary Key of (ParcelNumber, CardNumber, Sequence, Area)
     Column('ParcelNumber', ForeignKey('properties.ParcelNumber'), primary_key=True),
-    Column('CardNumber', String, primary_key=True),
+    Column('CardNumber', String, primary_key=True), # Integer sequence?
     Column('Sequence', String, primary_key=True), # Integer sequence?
     Column('Area', String, primary_key=True),
     Column('PercentUsable', Float),
@@ -51,3 +51,33 @@ areas = Table('areas', metadata,
     Column('AlternatePercentage', Float),
     Column('Quality', String),
 )
+
+buildings = Table('buildings', metadata,
+    # Composite Primary Key of (ParcelNumber, CardNumber)
+    Column('ParcelNumber', ForeignKey('properties.ParcelNumber'), primary_key=True),
+    Column('CardNumber', String, primary_key=True), # Integer Sequence?
+    Column('PropertyName', String),
+    Column('Buildingtype', String),
+    Column('QualityClass', String),
+    Column('OrigConstructionYear', Integer),
+    Column('AverConstructionYear', Integer), # Was "AverConstruction Year"
+    Column('NoofUnits', Integer),
+    Column('Stories', String),
+    Column('ExteriorWallsType1', String),
+    Column('ExteriorPercent1', Float),
+    Column('ExteriorWallsType2', String),
+    Column('ExteriorPercent2', Float),
+    Column('AvgStoryHeight', Float),
+    Column('Roofing', String),
+    Column('HeatPercent', Float),
+    Column('HeatCool1', String),
+    Column('HeatCoolPercent1', Float),
+    Column('HeatCool2', String),
+    Column('HeatCoolPercent2', Float),
+    Column('Baths', Float),
+    Column('PlumbFixtures', Integer),
+    Column('Bedrooms', Integer),
+    Column('Shape', String),
+    Column('BasementGarage', Integer), # Was "BasementGrage"
+)
+
