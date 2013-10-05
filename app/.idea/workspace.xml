@@ -26,7 +26,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="0" selection-start="3952" selection-end="3952" vertical-scroll-proportion="-10.4" vertical-offset="995" max-vertical-offset="1650">
+            <state line="76" column="0" selection-start="2938" selection-end="2938" vertical-scroll-proportion="-15.6" vertical-offset="360" max-vertical-offset="1725">
               <folding>
                 <element signature="tag#div#0;tag#div#0;tag#footer#0;tag#body#0;tag#html#0" expanded="false" />
               </folding>
@@ -37,9 +37,9 @@
       <file leaf-file-name="partial1.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/partials/partial1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="6" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.9145299" vertical-offset="864" max-vertical-offset="1275">
+            <state line="16" column="85" selection-start="537" selection-end="537" vertical-scroll-proportion="0.6837607" vertical-offset="0" max-vertical-offset="1425">
               <folding>
-                <element signature="n#style#0;n#google-map#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#google-map#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -349,7 +349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="0" selection-start="3952" selection-end="3952" vertical-scroll-proportion="-10.4" vertical-offset="995" max-vertical-offset="1650">
+        <state line="76" column="0" selection-start="2938" selection-end="2938" vertical-scroll-proportion="-15.6" vertical-offset="360" max-vertical-offset="1725">
           <folding>
             <element signature="tag#div#0;tag#div#0;tag#footer#0;tag#body#0;tag#html#0" expanded="false" />
           </folding>
@@ -358,9 +358,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/partial1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="6" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.9145299" vertical-offset="864" max-vertical-offset="1275">
+        <state line="16" column="85" selection-start="537" selection-end="537" vertical-scroll-proportion="0.6837607" vertical-offset="0" max-vertical-offset="1425">
           <folding>
-            <element signature="n#style#0;n#google-map#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#google-map#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
