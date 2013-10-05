@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from sqlalchemy import MetaData, Table, Column, ForeignKey, UniqueConstraint, PrimaryKey
+from sqlalchemy import MetaData, Table, Column, ForeignKey, UniqueConstraint
 from sqlalchemy.types import Integer, Date, String, Float, Integer, Boolean
 
 metadata = MetaData()
@@ -92,7 +92,7 @@ sales = Table('sales', metadata,
     Column('SaleVerificationCode', String),
     Column('SaleDate', Date),
     Column('SaleAmount', Integer),
-    UniqueConstraint('ParcelNumber', 'CardNumber'),
+    UniqueConstraint('ParcelNumber', 'Sequence'),
 )
 
 zones = Table('zones', metadata,
