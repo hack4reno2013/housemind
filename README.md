@@ -1,7 +1,7 @@
 Housemind
 =========
 
-Let's mine the Washoe Countr assessor data!
+Let's mine the Washoe County assessor data!
 
 http://www.washoecounty.us/assessor
 
