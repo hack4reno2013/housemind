@@ -41,21 +41,22 @@ properties = Table('properties', metadata,
 )
 
 areas = Table('areas', metadata,
-    # Composite Primary Key of (ParcelNumber, CardNumber, Sequence, Area)
-    Column('ParcelNumber', ForeignKey('properties.ParcelNumber'), primary_key=True),
-    Column('CardNumber', String, primary_key=True), # Integer sequence?
-    Column('Sequence', String, primary_key=True), # Integer sequence?
-    Column('Area', String, primary_key=True),
+    Column('id', Integer, primary_key=True),
+    Column('ParcelNumber', ForeignKey('properties.ParcelNumber')),
+    Column('CardNumber', String), # Integer sequence?
+    Column('Sequence', String), # Integer sequence?
+    Column('Area', String),
     Column('PercentUsable', Float),
     Column('AlternateType', String),
     Column('AlternatePercentage', Float),
     Column('Quality', String),
+    UniqueConstraint('ParcelNumber', 'CardNumber', 'Sequence', 'Area'),
 )
 
 buildings = Table('buildings', metadata,
-    # Composite Primary Key of (ParcelNumber, CardNumber)
-    Column('ParcelNumber', ForeignKey('properties.ParcelNumber'), primary_key=True),
-    Column('CardNumber', String, primary_key=True), # Integer Sequence?
+    Column('id', Integer, primary_key=True),
+    Column('ParcelNumber', ForeignKey('properties.ParcelNumber')),
+    Column('CardNumber', String), # Integer Sequence?
     Column('PropertyName', String),
     Column('Buildingtype', String),
     Column('QualityClass', String),
@@ -79,25 +80,28 @@ buildings = Table('buildings', metadata,
     Column('Bedrooms', Integer),
     Column('Shape', String),
     Column('BasementGarage', Integer), # Was "BasementGrage"
+    UniqueConstraint('ParcelNumber', 'CardNumber'),
 )
 
 sales = Table('sales', metadata,
-    # Composite Primary Key of (ParcelNumber, CardNumber)
-    Column('ParcelNumber', ForeignKey('properties.ParcelNumber'), primary_key=True),
-    Column('Sequence', String, primary_key=True), # Integer sequence?
+    Column('id', Integer, primary_key=True),
+    Column('ParcelNumber', ForeignKey('properties.ParcelNumber')),
+    Column('Sequence', String), # Integer sequence?
     Column('DocumentNumber', String),
     Column('SaleUseCode', String),
     Column('SaleVerificationCode', String),
     Column('SaleDate', Date),
     Column('SaleAmount', Integer),
+    UniqueConstraint('ParcelNumber', 'CardNumber'),
 )
 
 zones = Table('zones', metadata,
-    # Composite Primary Key of (ParcelNumber, CardNumber, TempZoning, Zoning)
-    # Or (ParcelNumber, CardNumber, TempZoning / Zoning)?
-    Column('ParcelNumber', ForeignKey('properties.ParcelNumber'), primary_key=True),
-    Column('CardNumber', String, primary_key=True),
-    Column('TempZoning', String, primary_key=True),
-    Column('Zoning', String, primary_key=True),
+    Column('id', Integer, primary_key=True),
+    Column('ParcelNumber', ForeignKey('properties.ParcelNumber')),
+    Column('CardNumber', String),
+    Column('TempZoning', String),
+    Column('Zoning', String),
     Column('ZoningPercent', Float),
+    UniqueConstraint('ParcelNumber', 'CardNumber', 'TempZoning', 'Zoning'),
+    # Or (ParcelNumber, CardNumber, TempZoning / Zoning)?
 )
