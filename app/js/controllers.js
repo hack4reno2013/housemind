@@ -3,7 +3,22 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['tableSort']).
-	controller('MyCtrl1', ['$scope', function($scope) {
+	controller('MyCtrl1', ['$scope', 'Property', 'Building', 'Sales',
+				function($scope, Property, Building, Sales) {
+		var properties = Property.query(function() {
+			angular.forEach(properties, function(property) {
+				property.DisplayAddress1 = property.SitusNumber + " " + property.SitusStreet;
+				Building.get(property.ParcelNumber, function(data) {
+					property.building = data[0];
+				});
+				Sales.get(property.ParcelNumber, function(data) {
+					property.sales = data[0];
+				});
+			});
+		});
+
+		$scope.properties = properties;
+		
 		$scope.items = [
 			{id: "01", name: "A", price: "1.00", quantity: "1"},
 			{id: "02", name: "B", price: "10.00", quantity: "1"},
