@@ -7,7 +7,8 @@ angular.module('myApp', [
 							'myApp.services', 
 							'myApp.directives', 
 							'myApp.controllers',
-							'google-maps'
+							'google-maps',
+							'ngResource'
 						]).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
