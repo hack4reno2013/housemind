@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['tableSort']).
-	controller('MyCtrl1', ['$scope', 'Property', 'Building', 'Sales',
+	controller('HomeCtrl', ['$scope', 'Property', 'Building', 'Sales',
 				function($scope, Property, Building, Sales) {
 		var properties = Property.query(function() {
 			angular.forEach(properties, function(property) {
@@ -37,6 +37,9 @@ angular.module('myApp.controllers', ['tableSort']).
 			zoom: 13, // the zoom level
 		});
 	}])
-	.controller('MyCtrl2', [function() {
+	.controller('ApiCtrl', [function() {
+
+	}])
+	.controller('AboutCtrl', [function() {
 
 	}]);
