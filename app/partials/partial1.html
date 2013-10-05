@@ -11,10 +11,9 @@
         <div class="col-md-6 col-sm-6">
 
 	<div class="form-group">
-		<label for="street_address">Street Address</label>
-		<input ng-model="query.street_address" type="text" class="form-control" id="street_address" placeholder="Enter street address">
+		<label for="DisplayAddress1">Street Address</label>
+		<input ng-model="query.DisplayAddress1" type="text" class="form-control" id="DisplayAddress1" placeholder="Enter street address">
 	</div>
-
 	<div class="form-group">
 		<label for="street-address">Bedroom Count</label>
 		<select ng-model="query.bedroom_count" class="form-control" id="bedroom-count">
@@ -51,26 +50,27 @@
 	<thead>
 		<tr>
 			<th>Select</th>
-			<th ts-criteria="id">APN</th>
-			<th ts-criteria="street_address | lowercase" ts-default>Street Address</th>
+			<th ts-criteria="ParcelNumber">APN</th>
+			<th ts-criteria="DisplayAddress1 | lowercase" ts-default>Street Address</th>
 			<th ts-criteria="sale_price | parseFloat">Sale Price</th>
 			<th ts-criteria="bedroom_count | parseInt">Bedrooms</th>
 			<th ts-criteria="bathroom_count | parseInt">Bathrooms</th>
-			<th ts-criteria="living_area | parseInt">Size</th>
+			<th ts-criteria="BldgSquareFeet | parseInt">Size</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="item in items | filter:query"" ts-repeat>
+		<tr ng-repeat="property in properties | filter:query"" ts-repeat>
 			<td><input type="checkbox"></input>
-			<td>{{item.id}}</td>
-			<td>{{item.name}}</td>
-			<td>{{item.price | currency}}</td>
-			<td>{{item.quantity}}</td>
-			<td>{{item.bathroom_count}}</td>
-			<td>{{item.living_area}}</td>
+			<td>{{property.ParcelNumber}}</td>
+			<td>{{property.DisplayAddress1}}</td>
+			<td>{{property.price | currency}}</td>
+			<td>{{property.building.Bedrooms}}</td>
+			<td>{{property.building.Baths}}</td>
+			<td>{{property.BldgSquareFeet}}</td>
 		</tr>
 	</tbody>
 </table>
+Property: <br>{{properties}}
 
 query: <br>
 {{ query }}
