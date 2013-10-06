@@ -8,7 +8,9 @@ angular.module('myApp', [
 							'myApp.directives', 
 							'myApp.controllers',
 							'google-maps',
+                            'ui.bootstrap',
 							'ngResource'
+
 						]).
 	config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'});
