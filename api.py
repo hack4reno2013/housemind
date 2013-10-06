@@ -51,7 +51,7 @@ def get_where_clause(args,s,t):
 
 class Property(Resource):
     def get(self):
-        return process_args_and_select(propety_parser,
+        return process_args_and_select(property_parser,
                                        properties)
 
 class Area(Resource):
