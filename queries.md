@@ -3,6 +3,8 @@ Queries
 
 Some example queries you can run against the database.
 
+Don't use the Mailing addresses!
+
 ```sql
 SELECT "SitusNumber" as num, "SitusDirection" as dir, "SitusStreet" as street FROM properties;
 ```
@@ -40,4 +42,20 @@ Average number of baths by city:
 
 ```sql
 SELECT properties."MailingCity", AVG("Baths") as baths FROM buildings JOIN properties ON buildings."ParcelNumber" = properties."ParcelNumber" WHERE "MailingState" = 'NV' GROUP BY properties."MailingCity" ORDER BY baths DESC;
+```
+
+Group by zip codes:
+
+```sql
+SELECT "MailingZipCode", count("ParcelNumber") as "#" FROM properties GROUP BY "MailingZipCode" ORDER BY "#" DESC;
+```
+
+```sql
+SELECT "SitusNumber" as "#", "SitusDirection" as dir, "SitusStreet" as street, "Township" FROM properties;
+```
+
+Sum the land area of the properties
+
+```sql
+SELECT SUM("LandSquareFeet") FROM properties;
 ```
