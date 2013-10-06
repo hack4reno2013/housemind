@@ -15,9 +15,11 @@ conversions = {
 
 def convert_to_sf(value, unit):
     """
+    Convert the given value and unit to square feet.
     """
-    if not value and unit:
+    if not (value and unit):
         return None
+    unit = unit.lower()
     if unit not in conversions:
         return None
     try:
@@ -27,12 +29,54 @@ def convert_to_sf(value, unit):
     return int(float_value * conversions[unit])
 
 
+def parse_assessor_date(value):
+    """
+    Convert the given assessor date string to a python datetime.date object.
+    """
+    if not value:
+        return None
+    try:
+        dt = datetime.datetime.strptime(value, "%m/%d/%Y")
+        if dt:
+            return dt.date()
+    except TypeError:
+        pass
+    return None
+
+
+def parse_int(value):
+    """
+    Parse an int, that might look like a float.
+    """
+    if not value:
+        return None
+    try:
+        return int(float(value))
+    except ValueError:
+        pass
+    return none
+
+
+def parse_bool(value):
+    """
+    Parse a boolean represented as 0 or 1.
+    """
+    if not value:
+        return None
+    try:
+        return bool(int(value))
+    except ValueError:
+        pass
+    return None
+
+
+
 def clean_property(line):
     """
     Convert a property to load into the database.
     """
     # TODO logging
-    prop = {
+    return {
         'ParcelNumber': line[0],
         'LastName': line[1],
         'FirstName': line[2],
@@ -61,35 +105,13 @@ def clean_property(line):
         'Water': line[25],
         'Sewer': line[26],
         'StreetType': line[27],
+        # Land square feet is determined by LandArea and LandUnittype
+        'LandSquareFeet': convert_to_sf(line[28], line[29]),
+        'BldgSquareFeet': parse_int(line[30]),
         'NewParcelRoll': line[31],
+        'InspectionDate': parse_assessor_date(line[32]),
+        'Closed': parse_bool(line[33]),
     }
-
-    # Land square feet is determined by LandArea and LandUnittype
-    area = line[28]
-    unit = line[29].lower()
-
-    prop['LandSquareFeet'] = convert_to_sf(area, unit)
-
-    bldg = line[30]
-    if bldg:
-        try:
-            prop['BldgSquareFeet'] = int(float(bldg))
-        except ValueError:
-            print "Count not convert the value '{}' to an integer square feet for '{}'".format(line[30], line[0]) 
-
-    inspect = line[32]
-    if inspect:
-        try:
-            prop['InspectionDate'] = datetime.datetime.strptime(inspect, "%m/%d/%Y").date()
-        except TypeError:
-            print "Count not convert the value '{}' to a date for '{}'".format(line[0], inspect)         
-
-    try:
-        prop['Closed'] = bool(int(line[33]))
-    except ValueError:
-        print "Count not convert the value '{}' to an boolean for '{}'".format(line[0], line[33])
-
-    return prop
 
 
 def load_properties(conn, csv_file):
@@ -97,27 +119,16 @@ def load_properties(conn, csv_file):
     Load the Properties.csv
     """
     # TODO Should be idempotent
-
-    # TODO Probably doesn't need to chunk anymore
-    chunk = 1000
+    # Take the items in 10,000 item chunks
+    # These are transactions, not connections!
+    size = 10000
     with open(csv_file, "r") as f:
-        csvr = csv.reader(f)
-        count = 0
-        clean = []
-        for line in csvr:
-            clean.append(clean_property(line))
-            count += 1
-            if count > chunk:
-                print "Loading chunk"
-                with engine.begin() as conn:
-                    conn.execute(properties.insert(clean))
-                count = 0
-                clean = []
-
-    if clean:
-        with engine.begin() as conn:
-            conn.execute(properties.insert(clean))
-
+        lines = [l for l in csv.reader(f)]
+        for i, c in enumerate(chunk(lines, size)):
+            with engine.begin() as conn:
+                print "Loading chunk {}, <= {}".format(i, size * (i + 1))
+                conn.execute(properties.insert([clean_property(p) for p in c]))
+            
 
 def chunk(iterator, n):
     """
