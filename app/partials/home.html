@@ -57,6 +57,8 @@
                 <label for="max_SaleAmount">Max Sale Price</label>
                 <input ng-model="query.max_SaleAmount" type="text" class="form-control" id="max_SaleAmount">
             </div>
+            </br>
+            </br>
 
         </div>
 
@@ -67,25 +69,32 @@
         </div>
         <div ng-show="resultType =='list'">
 
-            <div ng-repeat="property in properties | startFrom:(currentPage-1)*pageSize | limitTo:pageSize | filter:query" >
+            <div ng-repeat="property in properties | filter:query | startFrom:(currentPage-1)*pageSize | limitTo:pageSize " >
             <!--  Service #1 -->
             <!-- Service icon -->
 
             <div class="service-content">
+
                 <!-- Title -->
                 <h5><a ng-href="#/property/{{property.ParcelNumber}}">{{property.DisplayAddress1}}</a></h5>
                 <p>Beds: {{property.building.Bedrooms}} Baths: {{property.building.Baths}}, Square Feet: {{property.BldgSquareFeet}}, Last Sale Price: {{property.sales.SaleAmount | currency}}</p>
+                <p>Total Assessed: ${{(property.LandAssessed*1 + property.ImprovmentAssessed*1)}}, Taxable Total: ${{(property.LandAppraised*1 + property.ImprovmentAppraised*1)}}</p>
             </div>
 
             <hr />
             </div>
 
             <div class="text-right col-md-offset-6">
-
+                <div ng-show="Math.ceil((properties|filter: query).length/pageSize) != '0'">
                    <!-- <pager total-items="totalItems" page="currentPage"></pager> -->
                     <!--<pager boundary-links="true" total-items="totalItems" page="currentPage" class="pagination-small" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pager> -->
                     <pager total-items="properties.length" page="currentPage"  items-per-page="4"></pager>
-                    Page {{currentPage}}/{{Math.ceil(properties.length/pageSize)}}
+
+                        Page {{currentPage}}/{{Math.ceil((properties|filter: query).length/pageSize)}}
+                    </div>
+                <div ng-show="Math.ceil((properties|filter: query).length/pageSize) == '0'">
+                    Nothing found!
+                    </div>
 
 
             </div>
