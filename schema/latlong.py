@@ -33,6 +33,8 @@ def match_latlong(engine, filepath):
     attempts = 0
     matched = 0
 
+    have_lat_long = defaultdict(list)
+
     with open(filepath) as f:
         csvr = csv.reader(f)
         header = csvr.next()
@@ -66,9 +68,21 @@ def match_latlong(engine, filepath):
 
             if key in matcher:
                 matched += 1
-                # TODO Update the parcels with the lat long 
+                # Update the parcels with the lat long
+                # TODO This is still broken, addresses are being overwritten?
+                have_lat_long[key] = (matcher[key], (lat, lon))
 
     print "{} of {} Matched".format(matched, attempts)
+
+    parcels = matcher[key]
+    with engine.begin() as conn:
+
+        for key, values in have_lat_long.items():
+            parcel, ll = values
+            lat, lon = ll
+            u = update(properties).where(properties.c.ParcelNumber.in_(parcels)).values(Latitude=lat, Longitude=lon)
+            result = conn.execute(u)
+            print lat, lon, result.__dict__["rowcount"]
 
 
 if __name__ == "__main__":
