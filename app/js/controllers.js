@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['tableSort']).
-	controller('HomeCtrl', ['$scope', '$route', 'Property', 'Building', 'Sales',
-				function($scope, $route, Property, Building, Sales) {
+	controller('HomeCtrl', ['$scope', '$route', '$filter', 'Property', 'Building', 'Sales',
+				function($scope, $route, $filter, Property, Building, Sales) {
         $scope.resultType = 'map';
 		$scope.refreshMap = false;
 		$scope.markers = new Array();
@@ -16,13 +16,17 @@ angular.module('myApp.controllers', ['tableSort']).
 			angular.forEach(properties, function(property) {
 				property.showDrawer = false;
 				property.DisplayAddress1 = property.SitusNumber + " " + property.SitusStreet;
+				property.building = {};
+				property.building.Bedrooms = 0;
+				property.sales = {};
 				Building.get(property.ParcelNumber, function(data) {
 					property.building = data[0];
+					Sales.get(property.ParcelNumber, function(data) {
+						property.sales = data[0];
+						property.infoWindow = "<h5><a ng-href='/property/" + property.ParcelNumber + "'>" + property.DisplayAddress1 + "</a></h5><p>Beds: " + property.building.Bedrooms + "</p><p>Baths: " + property.building.Baths + "</p><p>Square Feet: " + $filter('number')(property.BldgSquareFeet, 0) + "</p><p>Last Sale Price: " + $filter('currency')(property.sales.SaleAmount) + "</p>";
+						$scope.markers.push({latitude: property.Latitude, longitude: property.Longitude, infoWindow:property.infoWindow});
+					});
 				});
-				Sales.get(property.ParcelNumber, function(data) {
-					property.sales = data[0];
-				});
-				$scope.markers.push({latitude: property.Latitude, longitude: property.Longitude});
 				$scope.avgLatitude += parseFloat(property.Latitude);
 				$scope.avgLongitude += parseFloat(property.Longitude);
 			});
