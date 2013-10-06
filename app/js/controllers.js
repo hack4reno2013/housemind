@@ -6,7 +6,6 @@ angular.module('myApp.controllers', ['tableSort']).
 	controller('HomeCtrl', ['$scope', '$route', '$filter', 'Property', 'Building', 'Sales',
 				function($scope, $route, $filter, Property, Building, Sales) {
         $scope.resultType = 'map';
-		$scope.refreshMap = false;
 		$scope.markers = new Array();
 		$scope.avgLatitude = 0;
 		$scope.avgLongitude = 0;
@@ -30,7 +29,6 @@ angular.module('myApp.controllers', ['tableSort']).
 				$scope.avgLatitude += parseFloat(property.Latitude);
 				$scope.avgLongitude += parseFloat(property.Longitude);
 			});
-			$scope.refreshMap = true;
 			$scope.avgLatitude = $scope.avgLatitude / properties.length;
 			$scope.avgLongitude = $scope.avgLongitude / properties.length;
 			$scope.center = {latitude: $scope.avgLatitude, longitude: $scope.avgLongitude};
@@ -39,8 +37,6 @@ angular.module('myApp.controllers', ['tableSort']).
 		$scope.properties = properties;
 		
 		angular.extend($scope, {
-
-
             center: $scope.center,
             markers: $scope.markers, // an array of markers,
             fit: true,
