@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['tableSort']).
-	controller('HomeCtrl', ['$scope', 'Property', 'Building', 'Sales',
-				function($scope, Property, Building, Sales) {
+	controller('HomeCtrl', ['$scope', '$route', 'Property', 'Building', 'Sales',
+				function($scope, $route, Property, Building, Sales) {
 		var properties = Property.query(function() {
 			angular.forEach(properties, function(property) {
 				property.showDrawer = false;
@@ -43,4 +43,25 @@ angular.module('myApp.controllers', ['tableSort']).
 	}])
 	.controller('AboutCtrl', [function() {
 
-	}]);
+	}])
+	.controller('PropertyCtrl', ['$scope', '$route', 'Property', 'Building', 'Sales',
+				function($scope, $route, Property, Building, Sales) {
+		$scope.params = $route.current.params;
+		$scope.ParcelNumber = $scope.params.ParcelNumber;
+		
+		var properties = Property.get({ParcelNumber:$scope.ParcelNumber}, function() {
+			angular.forEach(property, function(property) {
+				property.showDrawer = false;
+				property.DisplayAddress1 = property.SitusNumber + " " + property.SitusStreet;
+				Building.get(property.ParcelNumber, function(data) {
+					property.building = data;
+				});
+				Sales.get(property.ParcelNumber, function(data) {
+					property.sales = data;
+				});
+			});
+		});
+		console.log(property);
+		$scope.property = property;
+	}])	
+;

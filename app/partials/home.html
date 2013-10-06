@@ -70,7 +70,7 @@
 	<tbody ng-repeat="property in properties | filter:query"" ts-repeat>
 		<tr>
 			<td><input ng-model="property.showDrawer" type="checkbox" /></td>
-			<td>{{property.DisplayAddress1}}</td>
+			<td><a ng-href="#property/{{property.ParcelNumber}}">{{property.DisplayAddress1}}</a></td>
 			<td>{{property.sales.SaleAmount | currency}}</td>
 			<td>{{property.building.Bedrooms}}</td>
 			<td>{{property.building.Baths}}</td>
