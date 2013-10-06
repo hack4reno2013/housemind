@@ -10,7 +10,6 @@ angular.module('myApp', [
 							'google-maps',
                             'ui.bootstrap',
 							'ngResource'
-
 						]).
 	config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'});
