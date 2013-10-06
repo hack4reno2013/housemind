@@ -1,6 +1,6 @@
 from flask.ext.restful import reqparse
 property_parser = reqparse.RequestParser()
-property_args = [('ParcelNumer',str, 'comming soon'),
+property_args = [('ParcelNumber',str, 'comming soon'),
                  ('LastName', str, 'comming soon'),
                  ('FirstName', str, 'comming soon'),
                  ('EtAls', str, 'comming soon'),
