@@ -6,6 +6,8 @@ angular.module('myApp.controllers', ['tableSort']).
 	controller('HomeCtrl', ['$scope', '$route', 'Property', 'Building', 'Sales',
 				function($scope, $route, Property, Building, Sales) {
         $scope.resultType = 'map';
+		$scope.refreshMap = false;
+		$scope.markers = new Array();
 		var properties = Property.query(function() {
 			angular.forEach(properties, function(property) {
 				property.showDrawer = false;
@@ -16,17 +18,23 @@ angular.module('myApp.controllers', ['tableSort']).
 				Sales.get(property.ParcelNumber, function(data) {
 					property.sales = data[0];
 				});
+				$scope.markers.push({latitude: property.Latitude, longitude: property.Longitude});
 			});
+			$scope.refreshMap = true;
+			$scope.$apply;
+			console.log($scope.markers);
+			
 		});
 
 		$scope.properties = properties;
-				
+		
 		angular.extend($scope, {
 			center: {
 				latitude: 39.529731, // initial map center latitude
-				longitude: -119.812828, // initial map center longitude
+				longitude: -119.812828 // initial map center longitude
 			},
-			markers: [], // an array of markers,
+			markers: $scope.markers
+			, // an array of markers,
 			zoom: 13, // the zoom level
 		});
 
