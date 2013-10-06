@@ -77,7 +77,7 @@
                     <th ts-criteria="BldgSquareFeet | parseFloat">Size</th>
                 </tr>
                 </thead>
-                <tbody ng-repeat="property in properties | filter:query"" ts-repeat>
+                <tbody ng-repeat="property in properties | startFrom:0 | limitTo:10 | filter:query" ts-repeat>
                 <tr>
                     <td><input ng-model="property.showDrawer" type="checkbox" /></td>
                     <td><a ng-href="#/property/{{property.ParcelNumber}}" title="See property details.">{{property.DisplayAddress1}}</a></td>
