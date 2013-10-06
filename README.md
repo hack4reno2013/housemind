@@ -25,3 +25,10 @@ Sample JSON files can be also generated using `convert_to_json.py`. It takes an 
 To run the build script, there must be a PostGres installation and the following python dependencies must be installed:
 
 * SQLAlchemy==0.8.2
+
+To build, run these scripts in the `schema` dir (or use the build file!):
+
+    python build.py
+    python load.py <path to .csv data>
+    python flatten.py <path to support data>
+    python latlong.py <path to address file>

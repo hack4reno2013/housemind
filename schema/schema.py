@@ -24,10 +24,10 @@ properties = Table('properties', metadata,
     Column('Block', String),
     Column('Range', String),
     Column('Subdivision', String),
-    Column('LandAppraised', String), # Is this a value?
-    Column('LandAssessed', String), # Is this a value?
-    Column('ImprovmentAppraised', String), # Is this a value?
-    Column('ImprovmentAssessed', String), # Is this a value?
+    Column('LandAppraised', Integer),
+    Column('LandAssessed', Integer),
+    Column('ImprovmentAppraised', Integer),
+    Column('ImprovmentAssessed', Integer),
     Column('ReappraisalCycle', String),
     Column('LandUseCode', String),
     Column('Water', String),
@@ -38,6 +38,8 @@ properties = Table('properties', metadata,
     Column('NewParcelRoll', String),
     Column('InspectionDate', Date),
     Column('Closed', Boolean),
+    Column('Latitude', Float),
+    Column('Longitude', Float),
 )
 
 areas = Table('areas', metadata,
