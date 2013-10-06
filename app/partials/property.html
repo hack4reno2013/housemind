@@ -1,1 +1,74 @@
+<table>
+	<caption>Property Info</caption>
+	<tbody>
+		<tr>
+			<th>Owner Name</th>
+			<td>{{property.FirstName}} {{property.LastName}}</td>
+		</tr>
+		<tr>
+			<th>Address</th>
+			<td>{{property.DisplayAddress1}}</td>
+		</tr>
+		<tr>
+			<th>Mailing Address</th>
+			<td>{{property.MailingAddress1}} {{property.MailingAddress2}}<br>{{property.MailingCity}}, {{property.MailingState}} {{property.MailingZipCode}}</td>
+		</tr>
+		<tr>
+			<th>Land Appraised Value</th>
+			<td>{{property.LandAppraised | currency}}</td>
+		</tr>
+		<tr>
+			<th>Building Size</th>
+			<td>{{property.BldgSquareFeet}}</td>
+		</tr>
+		<tr>
+			<th>Parcel Number</th>
+			<td>{{property.ParcelNumber}}</td>
+		</tr>
+	</tbody>
+</table>
+<table>
+	<caption>Building Info</caption>
+	<thead>
+		<tr>
+			<th>Parcel Number</th>
+			<th>Card Number</th>
+			<th>Bedrooms</th>
+			<th>Bathrooms</th>
+			<th>Stories</th>
+			<th>Units</th>
+		</tr>
+	<tbody>
+		<tr ng-repeat="building in property.building | filter:property.ParcelNumber">
+			<td>{{building.ParcelNumber}}</td>
+			<td>{{building.CardNumber}}</td>
+			<td>{{building.Bedrooms}}</td>
+			<td>{{building.Baths}}</td>
+			<td>{{building.Stories}}</td>
+			<td>{{building.NoofUnits}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<table>
+	<caption>Sales Info</caption>
+	<thead>
+		<tr>
+			<th>Parcel Number</th>
+			<th>Sequence</th>
+			<th>Sale Date</th>
+			<th>Sale Amount</th>
+			<th>Document Number</th>
+		</tr>
+	<tbody>
+		<tr ng-repeat="sale in property.sales | filter:property.ParcelNumber | orderBy:'Sequence':false">
+			<td>{{sale.ParcelNumber}}</td>
+			<td>{{sale.Sequence}}</td>
+			<td>{{sale.SaleDate}}</td>
+			<td>{{sale.SaleAmount}}</td>
+			<td>{{sale.DocumentNumber}}</td>
+		</tr>
+	</tbody>
+</table>
 property: {{property}}
+

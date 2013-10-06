@@ -28,8 +28,8 @@
                 <input ng-model="query.DisplayAddress1" type="text" class="form-control" id="DisplayAddress1" placeholder="Enter street address">
             </div>
             <div class="form-group">
-                <label for="street-address">Bedroom Count</label>
-                <select ng-model="query.bedroom_count" class="form-control" id="bedroom-count">
+                <label for="Bedrooms">Bedroom Count</label>
+                <select ng-model="query.Bedrooms" class="form-control" id="Bedrooms">
                     <option></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -39,8 +39,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="street-address">Bathroom Count</label>
-                <select ng-model="query.bathroom_count" class="form-control" id="bathroom-count">
+                <label for="Baths">Bathroom Count</label>
+                <select ng-model="query.Baths" class="form-control" id="Baths">
                     <option></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -50,12 +50,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="min_sale_price">Min Sale Price</label>
-                <input ng-model="query.min_sale_price" type="text" class="form-control" id="street_address" placeholder="Enter street address">
+                <label for="min_SaleAmount">Min Sale Price</label>
+                <input ng-model="query.min_SaleAmount" type="text" class="form-control" id="min_SaleAmount">
             </div>
             <div class="form-group">
-                <label for="max_sale_price">Max Sale Price</label>
-                <input ng-model="query.max_sale_price" type="text" class="form-control" id="street_address" placeholder="Enter street address">
+                <label for="max_SaleAmount">Max Sale Price</label>
+                <input ng-model="query.max_SaleAmount" type="text" class="form-control" id="max_SaleAmount">
             </div>
 
         </div>
@@ -71,10 +71,10 @@
                 <tr>
                     <th>Select</th>
                     <th ts-criteria="DisplayAddress1 | lowercase" ts-default>Street Address</th>
-                    <th ts-criteria="sale_price | parseFloat">Sale Price</th>
-                    <th ts-criteria="bedroom_count | parseInt">Bedrooms</th>
-                    <th ts-criteria="bathroom_count | parseInt">Bathrooms</th>
-                    <th ts-criteria="BldgSquareFeet | parseInt">Size</th>
+                    <th ts-criteria="SaleAmount | parseFloat">Sale Price</th>
+                    <th ts-criteria="Bedrooms | parseInt">Bedrooms</th>
+                    <th ts-criteria="Baths | parseInt">Bathrooms</th>
+                    <th ts-criteria="BldgSquareFeet | parseFloat">Size</th>
                 </tr>
                 </thead>
                 <tbody ng-repeat="property in properties | filter:query"" ts-repeat>
