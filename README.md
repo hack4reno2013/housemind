@@ -9,4 +9,6 @@ You can query the property database here: http://www.washoecounty.us/assessor/ca
 
 The data can also be download from: http://www.washoecounty.us/assessor/dl.htm
 
-With the main generic data file at: ftp://GenericFiles:endjob@wcftp.washoecounty.us/GNRC/generic.zip
+With the main generic data file ats: ftp://GenericFiles:endjob@wcftp.washoecounty.us/GNRC/generic.zip
+
+
