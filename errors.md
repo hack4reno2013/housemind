@@ -7,6 +7,18 @@ Errors that I have found in the county assessor data.
 
 Acreage of 003-086-05 and 003-086-09, wrong unit
 
+Mispellings of MailingCity:
+
+* INCLINE VILLASGE
+* RENO`
+* RENOS
+
+Multiple names:
+
+* CARSON / CARSON CITY / CARSON CITY NV
+* INCLINE / INCLINE VILLAGE
+* RENO / Reno
+
 
 ### Sales
 
