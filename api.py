@@ -1,6 +1,6 @@
 from flask import Flask
 from flask.ext.restful import Resource, Api
-from sqlalchemy import select
+from sqlalchemy import select, and_
 from schema.schema import metadata, properties, areas, buildings, sales, zones
 import schema.settings as settings
 from sqlalchemy import create_engine
@@ -9,7 +9,6 @@ from api.area_arg_parser import area_parser
 from api.building_arg_parser import building_parser
 from api.zone_arg_parser import zone_parser
 from api.sales_arg_parser import sales_parser
-
 
 app = Flask(__name__)
 api = Api(app)
@@ -48,7 +47,12 @@ def get_where_clause(args,s,t):
             valid_args[k] = args[k]
     print(valid_args.keys())
     for k in valid_args.keys():
-        s = s.where(getattr(t.c,k) == valid_args[k])
+        print(valid_args[k])
+        if isinstance(valid_args[k],tuple):
+            s = s.where(and_(getattr(t.c,k) >= valid_args[k][0],
+                        getattr(t.c,k) <= valid_args[k][1] ))
+        else:
+            s = s.where(getattr(t.c,k) == valid_args[k])
     return s
 
 class Property(Resource):
