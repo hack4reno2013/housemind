@@ -37,7 +37,20 @@ angular.module('myApp.controllers', ['tableSort']).
 			, // an array of markers,
 			zoom: 13, // the zoom level
 		});
-	}])
+
+                        $scope.totalItems = 64;
+                        $scope.currentPage = 1;
+                        $scope.maxSize = 5;
+
+                        $scope.setPage = function (pageNo) {
+                            $scope.currentPage = pageNo;
+                        };
+
+                        $scope.bigTotalItems = 175;
+                        $scope.bigCurrentPage = 1;
+
+
+                }])
 	.controller('ApiCtrl', [function() {
 
 	}])
@@ -66,3 +79,4 @@ angular.module('myApp.controllers', ['tableSort']).
 		
 	}])	
 ;
+
