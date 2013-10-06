@@ -32,15 +32,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="property.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/partials/property.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="40" selection-start="288" selection-end="288" vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="1200">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,10 +41,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="property.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/partials/property.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="22" selection-start="1353" selection-end="1353" vertical-scroll-proportion="-0.20689656" vertical-offset="912" max-vertical-offset="1260">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="25" selection-start="77" selection-end="77" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="1770">
+            <state line="9" column="17" selection-start="250" selection-end="251" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="1770">
               <folding>
                 <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0" expanded="false" />
               </folding>
@@ -86,15 +86,6 @@
               <folding>
                 <marker date="1381089880000" expanded="true" signature="1009:1456" placeholder="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="directives.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/directives.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -139,6 +130,7 @@
         <option value="$PROJECT_DIR$/partials/home.html" />
         <option value="$PROJECT_DIR$/partials/api.html" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/partials/property.html" />
       </list>
     </option>
   </component>
@@ -412,15 +404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="25" selection-start="77" selection-end="77" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="1770">
-          <folding>
-            <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/partials/api.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="59" selection-start="84" selection-end="84" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="195">
@@ -435,9 +418,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/partials/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="17" selection-start="250" selection-end="251" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="1770">
+          <folding>
+            <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/partials/property.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="40" selection-start="288" selection-end="288" vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="1200">
+        <state line="56" column="22" selection-start="1353" selection-end="1353" vertical-scroll-proportion="-0.20689656" vertical-offset="912" max-vertical-offset="1260">
           <folding />
         </state>
       </provider>
