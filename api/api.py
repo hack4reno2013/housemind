@@ -36,6 +36,9 @@ class Zoning(Resource):
 
 api.add_resource(Property,'/Property/')
 api.add_resource(Area,'/Area/')
+api.add_resource(Building,'/Building/')
+api.add_resource(Sales,'/Sales/')
+api.add_resource(Zoning,'/Zoning/')
 
 if __name__ == '__main__':
     app.run(debug=True)

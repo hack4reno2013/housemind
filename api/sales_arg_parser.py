@@ -1,4 +1,5 @@
 from flask.ext.restful import reqparse
+from extra_types import int_range
 sales_parser = reqparse.RequestParser()
 sales_args = [('ParcelNumber',int,''),
     ('Sequence', str,''), 
@@ -6,7 +7,7 @@ sales_args = [('ParcelNumber',int,''),
     ('SaleUseCode', str,''),
     ('SaleVerificationCode', str,''),
     ('SaleDate', str,''), #should really be data
-    ('SaleAmount', int,'')
+    ('SaleAmount', int_range,'')
 ]
 
 
