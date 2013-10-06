@@ -3,84 +3,118 @@
 <div class="content">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-md-6 text-center">
                 <h3>Housing Data</h3>
                 <p class="big grey">Enter your search data below</p>
 
             </div>
+            <p>
+            <div class="col-md-6 text-right">
+            <div class="btn-group" data-toggle="buttons">
+                <button type="button" ng-click="resultType='map'" class="btn btn-default" ng-class="{active:resultType=='map'}">Map</button>
+                <button type="button" ng-click="resultType='list'" class="btn btn-default" ng-class="{active:resultType=='list'}">List</button>
+            </div>
+        </div>
+            </p>
         </div>
         <hr />
 <form id="query" role="form" ng-model="query">
     <div class="row">
+
         <div class="col-md-6 col-sm-6">
-        <google-map center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="height: 400px; display:block;"></google-map>
+
+            <div class="form-group">
+                <label for="DisplayAddress1">Street Address</label>
+                <input ng-model="query.DisplayAddress1" type="text" class="form-control" id="DisplayAddress1" placeholder="Enter street address">
+            </div>
+            <div class="form-group">
+                <label for="street-address">Bedroom Count</label>
+                <select ng-model="query.bedroom_count" class="form-control" id="bedroom-count">
+                    <option></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="street-address">Bathroom Count</label>
+                <select ng-model="query.bathroom_count" class="form-control" id="bathroom-count">
+                    <option></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="min_sale_price">Min Sale Price</label>
+                <input ng-model="query.min_sale_price" type="text" class="form-control" id="street_address" placeholder="Enter street address">
+            </div>
+            <div class="form-group">
+                <label for="max_sale_price">Max Sale Price</label>
+                <input ng-model="query.max_sale_price" type="text" class="form-control" id="street_address" placeholder="Enter street address">
+            </div>
 
         </div>
-        <div class="col-md-6 col-sm-6">
 
-	<div class="form-group">
-		<label for="DisplayAddress1">Street Address</label>
-		<input ng-model="query.DisplayAddress1" type="text" class="form-control" id="DisplayAddress1" placeholder="Enter street address">
-	</div>
-	<div class="form-group">
-		<label for="street-address">Bedroom Count</label>
-		<select ng-model="query.bedroom_count" class="form-control" id="bedroom-count">
-			<option></option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</select>
-	</div>
-	<div class="form-group">
-		<label for="street-address">Bathroom Count</label>
-		<select ng-model="query.bathroom_count" class="form-control" id="bathroom-count">
-			<option></option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</select>
-	</div>
-	<div class="form-group">
-		<label for="min_sale_price">Min Sale Price</label>
-		<input ng-model="query.min_sale_price" type="text" class="form-control" id="street_address" placeholder="Enter street address">
-	</div>
-	<div class="form-group">
-		<label for="max_sale_price">Max Sale Price</label>
-		<input ng-model="query.max_sale_price" type="text" class="form-control" id="street_address" placeholder="Enter street address">
-	</div>
+        <div ng-show="resultType =='map'">
+                <div class="col-md-6 col-sm-6">
+                    <google-map center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="height: 400px; display:block;"></google-map>
+                </div>
+        </div>
+        <div ng-show="resultType =='list'">
+            <table border="1" ts-wrapper>
+                <thead>
+                <tr>
+                    <th>Select</th>
+                    <th ts-criteria="DisplayAddress1 | lowercase" ts-default>Street Address</th>
+                    <th ts-criteria="sale_price | parseFloat">Sale Price</th>
+                    <th ts-criteria="bedroom_count | parseInt">Bedrooms</th>
+                    <th ts-criteria="bathroom_count | parseInt">Bathrooms</th>
+                    <th ts-criteria="BldgSquareFeet | parseInt">Size</th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="property in properties | filter:query"" ts-repeat>
+                <tr>
+                    <td><input ng-model="property.showDrawer" type="checkbox" /></td>
+                    <td>{{property.DisplayAddress1}}</td>
+                    <td>{{property.sales.SaleAmount | currency}}</td>
+                    <td>{{property.building.Bedrooms}}</td>
+                    <td>{{property.building.Baths}}</td>
+                    <td>{{property.BldgSquareFeet}}</td>
+                </tr>
+                <tr ng-show="property.showDrawer">
+                    <td colspan=6>{{property.ParcelNumber}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+            <ul class="pagination" >
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+
+            </ul>
+            </div>
+        </div>
+
+    </div>
 </form>
 </div>
 </div>
+</div>
 
-<table border="1" ts-wrapper>
-	<thead>
-		<tr>
-			<th>Select</th>
-			<th ts-criteria="DisplayAddress1 | lowercase" ts-default>Street Address</th>
-			<th ts-criteria="sale_price | parseFloat">Sale Price</th>
-			<th ts-criteria="bedroom_count | parseInt">Bedrooms</th>
-			<th ts-criteria="bathroom_count | parseInt">Bathrooms</th>
-			<th ts-criteria="BldgSquareFeet | parseInt">Size</th>
-		</tr>
-	</thead>
-	<tbody ng-repeat="property in properties | filter:query"" ts-repeat>
-		<tr>
-			<td><input ng-model="property.showDrawer" type="checkbox" /></td>
-			<td><a ng-href="#property/{{property.ParcelNumber}}">{{property.DisplayAddress1}}</a></td>
-			<td>{{property.sales.SaleAmount | currency}}</td>
-			<td>{{property.building.Bedrooms}}</td>
-			<td>{{property.building.Baths}}</td>
-			<td>{{property.BldgSquareFeet}}</td>
-		</tr>
-		<tr ng-show="property.showDrawer">
-			<td colspan=6>{{property.ParcelNumber}}</td>
-		</tr>
-	</tbody>
-</table>
+
+
+
+
+<div ng-show="resultType =='test'">
+    {{properties}}
 </div>
-</div>
-{{properties}}

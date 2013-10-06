@@ -5,6 +5,7 @@
 angular.module('myApp.controllers', ['tableSort']).
 	controller('HomeCtrl', ['$scope', '$route', 'Property', 'Building', 'Sales',
 				function($scope, $route, Property, Building, Sales) {
+        $scope.resultType = 'map';
 		var properties = Property.query(function() {
 			angular.forEach(properties, function(property) {
 				property.showDrawer = false;
