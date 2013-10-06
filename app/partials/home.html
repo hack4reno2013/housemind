@@ -91,22 +91,20 @@
                 </tr>
                 </tbody>
             </table>
-            <div class="text-right">
-            <ul class="pagination" >
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
+            <div class="text-right col-md-offset-6">
 
-            </ul>
+                   <!-- <pager total-items="totalItems" page="currentPage"></pager> -->
+                    <!--<pager boundary-links="true" total-items="totalItems" page="currentPage" class="pagination-small" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pager> -->
+                    <pager total-items="properties.length" page="currentPage" items-per-page="5"></pager>
+
+
             </div>
         </div>
 
     </div>
 </form>
+        {{properties.length}}
+        {{currentPage}}
 </div>
 </div>
 </div>
