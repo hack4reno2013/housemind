@@ -1,4 +1,5 @@
 from flask.ext.restful import reqparse
+from extra_types import float_range
 property_parser = reqparse.RequestParser()
 property_args = [('ParcelNumber',str, 'comming soon'),
                  ('LastName', str, 'comming soon'),
@@ -33,7 +34,9 @@ property_args = [('ParcelNumber',str, 'comming soon'),
                  ('BldgSquareFeet', str, 'comming soon'),
                  ('NewParcelRoll', str, 'comming soon'),
                  ('InspectionDate', str, 'comming soon'),
-                 ('Closed', str, 'comming soon')]
+                 ('Closed', str, 'comming soon'),
+                 ('Latitude', float_range,''),
+                 ('Longitude', float_range,'')]
 
 for arg in property_args:
     property_parser.add_argument(arg[0],type=arg[1],help=arg[2])
