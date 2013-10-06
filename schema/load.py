@@ -5,7 +5,7 @@ import sys
 import os
 
 import settings
-from schema import properties
+from schema import properties, areas, buildings, sales, zones
 
 
 conversions = {
@@ -55,6 +55,19 @@ def parse_int(value):
     except ValueError:
         pass
     return none
+
+
+def parse_float(value):
+    """
+    Parse a float.
+    """
+    if not value:
+        return None
+    try:
+        return float(value)
+    except ValueError:
+        pass
+    return None
 
 
 def parse_bool(value):
@@ -114,21 +127,99 @@ def clean_property(line):
     }
 
 
-def load_properties(conn, csv_file):
+def clean_area(item):
     """
-    Load the Properties.csv
+    Clean an area object
     """
-    # TODO Should be idempotent
-    # Take the items in 10,000 item chunks
-    # These are transactions, not connections!
+    # An id will be set automatically
+    return {
+        'ParcelNumber': item[0],
+        'CardNumber': item[1],
+        'Sequence': item[2],
+        'Area': item[3],
+        'PercentUsable': parse_float(item[4]),
+        'AlternateType': item[5],
+        'AlternatePercentage': parse_float(item[6]),
+        'Quality': item[7],
+    }
+
+
+def clean_building(item):
+    """
+    Clean a building object
+    """
+    # An id will be set automatically
+    return {
+        'ParcelNumber': item[0],
+        'CardNumber': item[1],
+        'PropertyName': item[2],
+        'Buildingtype': item[3],
+        'QualityClass': item[5],
+        'OrigConstructionYear': parse_int(item[6]),
+        'AverConstructionYear': parse_int(item[7]),
+        'NoofUnits': parse_int(item[7]),
+        'Stories': item[8],
+        'ExteriorWallsType1': item[9],
+        'ExteriorPercent1': parse_float(item[10]),
+        'ExteriorWallsType2': item[11],
+        'ExteriorPercent2': parse_float(item[12]),
+        'AvgStoryHeight': parse_float(item[13]),
+        'Roofing': item[14],
+        'HeatPercent': parse_float(item[15]),
+        'HeatCool1': item[16],
+        'HeatCoolPercent1': parse_float(item[17]),
+        'HeatCool2': item[18],
+        'HeatCoolPercent2': parse_float(item[19]),
+        'Baths': parse_float(item[20]),
+        'PlumbFixtures': parse_int(item[21]),
+        'Bedrooms': parse_int(item[22]),
+        'Shape': item[23],
+        'BasementGarage': parse_int(item[24]),
+    }
+
+
+def clean_sale(item):
+    """
+    Clean a sale object
+    """
+    # An id will be set automatically
+    return {
+        'ParcelNumber': item[0],
+        'Sequence': item[1],
+        'DocumentNumber': item[2],
+        'SaleUseCode': item[3],
+        'SaleVerificationCode': item[4],
+        'SaleDate': parse_assessor_date(item[5]),
+        'SaleAmount': parse_int(item[6]),
+    }
+
+
+def clean_zone(item):
+    """
+    Clean a zone item
+    """
+    return {
+        'ParcelNumber': item[0],
+        'CardNumber': item[1],
+        'TempZoning': item[2],
+        'Zoning': item[3],
+        'ZoningPercent': parse_float(item[4]),
+    }
+    
+
+
+def load(engine, csv_file, method, table):
+    """
+    Load the csv file after cleaning the results.
+    """
     size = 10000
     with open(csv_file, "r") as f:
         lines = [l for l in csv.reader(f)]
         for i, c in enumerate(chunk(lines, size)):
             with engine.begin() as conn:
                 print "Loading chunk {}, <= {}".format(i, size * (i + 1))
-                conn.execute(properties.insert([clean_property(p) for p in c]))
-            
+                conn.execute(table.insert([method(p) for p in c]))
+
 
 def chunk(iterator, n):
     """
@@ -149,15 +240,19 @@ if __name__ == "__main__":
         sys.exit(1)
 
     files = [
-        ("Property.csv", load_properties),
+        ("Property.csv", clean_property, properties),
+        ("Areas.csv", clean_area, areas),
+        ("Building.csv", clean_building, buildings),
+        ("Sales.csv", clean_sale, sales),
+        ("Zone.csv", clean_zone, zones),
     ]
 
     # Check for all files before loading
     error = False
-    for filename, method in files:
+    for filename, method, table in files:
         csv_file = os.path.join(directory, filename)
         if not os.path.isfile(csv_file):
-            print "There is no file name named", filename
+            print "There is no file named", filename
             error = True
 
     if error:
@@ -167,6 +262,7 @@ if __name__ == "__main__":
     from sqlalchemy import create_engine
     engine = create_engine(settings.DB_STRING)
 
-    for filename, method in files:
+    for filename, method, table in files:
+        print "Loading file:", filename
         csv_file = os.path.join(directory, filename)
-        method(engine, csv_file)
+        load(engine, csv_file, method, table)

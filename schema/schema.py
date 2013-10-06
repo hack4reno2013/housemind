@@ -92,7 +92,9 @@ sales = Table('sales', metadata,
     Column('SaleVerificationCode', String),
     Column('SaleDate', Date),
     Column('SaleAmount', Integer),
-    UniqueConstraint('ParcelNumber', 'Sequence'),
+    # TODO Duplicate entries, see: errors.md
+    # ALTER TABLE sales DROP CONSTRAINT "sales_ParcelNumber_Sequence_key";
+    # UniqueConstraint('ParcelNumber', 'Sequence'),
 )
 
 zones = Table('zones', metadata,
@@ -102,6 +104,7 @@ zones = Table('zones', metadata,
     Column('TempZoning', String),
     Column('Zoning', String),
     Column('ZoningPercent', Float),
-    UniqueConstraint('ParcelNumber', 'CardNumber', 'TempZoning', 'Zoning'),
+    # ALTER TABLE zones DROP CONSTRAINT "zones_ParcelNumber_CardNumber_TempZoning_Zoning_key";
+    # UniqueConstraint('ParcelNumber', 'CardNumber', 'TempZoning', 'Zoning'),
     # Or (ParcelNumber, CardNumber, TempZoning / Zoning)?
 )
