@@ -7,6 +7,7 @@ angular.module('myApp.controllers', ['tableSort']).
 				function($scope, Property, Building, Sales) {
 		var properties = Property.query(function() {
 			angular.forEach(properties, function(property) {
+				property.showDrawer = false;
 				property.DisplayAddress1 = property.SitusNumber + " " + property.SitusStreet;
 				Building.get(property.ParcelNumber, function(data) {
 					property.building = data[0];

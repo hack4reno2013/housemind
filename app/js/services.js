@@ -25,7 +25,8 @@ angular.module('myApp.services', ['ngResource'])
 				params:{
 					ParcelNumber: 'ParcelNumber'
 				},
-				isArray:true
+				isArray:true,
+				dataType: 'array'
 			}
 		});
 	})

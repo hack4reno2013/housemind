@@ -52,7 +52,6 @@
 	<thead>
 		<tr>
 			<th>Select</th>
-			<th ts-criteria="ParcelNumber">APN</th>
 			<th ts-criteria="DisplayAddress1 | lowercase" ts-default>Street Address</th>
 			<th ts-criteria="sale_price | parseFloat">Sale Price</th>
 			<th ts-criteria="bedroom_count | parseInt">Bedrooms</th>
@@ -60,17 +59,20 @@
 			<th ts-criteria="BldgSquareFeet | parseInt">Size</th>
 		</tr>
 	</thead>
-	<tbody>
-		<tr ng-repeat="property in properties | filter:query"" ts-repeat>
-			<td><input type="checkbox"></input>
-			<td>{{property.ParcelNumber}}</td>
+	<tbody ng-repeat="property in properties | filter:query"" ts-repeat>
+		<tr>
+			<td><input ng-model="property.showDrawer" type="checkbox" /></td>
 			<td>{{property.DisplayAddress1}}</td>
 			<td>{{property.sales.SaleAmount | currency}}</td>
 			<td>{{property.building.Bedrooms}}</td>
 			<td>{{property.building.Baths}}</td>
 			<td>{{property.BldgSquareFeet}}</td>
 		</tr>
+		<tr ng-show="property.showDrawer">
+			<td colspan=6>{{property.ParcelNumber}}</td>
+		</tr>
 	</tbody>
 </table>
 </div>
 </div>
+{{properties}}
