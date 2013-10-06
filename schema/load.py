@@ -207,7 +207,6 @@ def clean_zone(item):
     }
     
 
-
 def load(engine, csv_file, method, table):
     """
     Load the csv file after cleaning the results.
