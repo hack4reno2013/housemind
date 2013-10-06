@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="0" selection-start="3612" selection-end="3612" vertical-scroll-proportion="-52.5" vertical-offset="240" max-vertical-offset="1890">
+            <state line="36" column="79" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.49861497" vertical-offset="360" max-vertical-offset="1890">
               <folding />
             </state>
           </provider>
@@ -41,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="26" selection-start="4673" selection-end="4673" vertical-scroll-proportion="0.9137931" vertical-offset="1062" max-vertical-offset="1770">
+            <state line="81" column="18" selection-start="3784" selection-end="3784" vertical-scroll-proportion="-48.125" vertical-offset="0" max-vertical-offset="1770">
               <folding>
                 <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0" expanded="false" />
               </folding>
@@ -116,10 +116,10 @@
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/filters.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/sample/Property.json" />
         <option value="$PROJECT_DIR$/partials/home.html" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -393,19 +393,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="0" selection-start="3612" selection-end="3612" vertical-scroll-proportion="-52.5" vertical-offset="240" max-vertical-offset="1890">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/partials/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="26" selection-start="4673" selection-end="4673" vertical-scroll-proportion="0.9137931" vertical-offset="1062" max-vertical-offset="1770">
+        <state line="81" column="18" selection-start="3784" selection-end="3784" vertical-scroll-proportion="-48.125" vertical-offset="0" max-vertical-offset="1770">
           <folding>
             <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="79" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.49861497" vertical-offset="360" max-vertical-offset="1890">
+          <folding />
         </state>
       </provider>
     </entry>
