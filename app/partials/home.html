@@ -1,0 +1,116 @@
+
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h3>Housing Data</h3>
+                <p class="big grey">Enter your search data below</p>
+
+            </div>
+            <p>
+            <div class="col-md-6 text-right">
+            <div class="btn-group" data-toggle="buttons">
+                <button type="button" ng-click="resultType='map'" class="btn btn-default" ng-class="{active:resultType=='map'}">Map</button>
+                <button type="button" ng-click="resultType='list'" class="btn btn-default" ng-class="{active:resultType=='list'}">List</button>
+            </div>
+        </div>
+            </p>
+        </div>
+        <hr />
+<form id="query" role="form" ng-model="query">
+    <div class="row">
+
+        <div class="col-md-6 col-sm-6">
+
+            <div class="form-group">
+                <label for="DisplayAddress1">Street Address</label>
+                <input ng-model="query.DisplayAddress1" type="text" class="form-control" id="DisplayAddress1" placeholder="Enter street address">
+            </div>
+            <div class="form-group">
+                <label for="Bedrooms">Bedroom Count</label>
+                <select ng-model="query.Bedrooms" class="form-control" id="Bedrooms">
+                    <option></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Baths">Bathroom Count</label>
+                <select ng-model="query.Baths" class="form-control" id="Baths">
+                    <option></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="min_SaleAmount">Min Sale Price</label>
+                <input ng-model="query.min_SaleAmount" type="text" class="form-control" id="min_SaleAmount">
+            </div>
+            <div class="form-group">
+                <label for="max_SaleAmount">Max Sale Price</label>
+                <input ng-model="query.max_SaleAmount" type="text" class="form-control" id="max_SaleAmount">
+            </div>
+            </br>
+            </br>
+
+        </div>
+
+        <div ng-show="resultType =='map'">
+                <div class="col-md-6 col-sm-6">
+                    <google-map center="center" draggable="true" zoom="zoom" markers="markers" mark-click="false" refresh="refreshMap" style="height: 400px; display:block;"></google-map>
+                </div>
+        </div>
+        <div ng-show="resultType =='list'">
+
+            <div ng-repeat="property in properties | filter:query | startFrom:(currentPage-1)*pageSize | limitTo:pageSize " >
+            <!--  Service #1 -->
+            <!-- Service icon -->
+
+            <div class="service-content">
+
+                <!-- Title -->
+                <h5><a ng-href="#/property/{{property.ParcelNumber}}">{{property.DisplayAddress1}}</a></h5>
+                <p>Beds: {{property.building.Bedrooms}} Baths: {{property.building.Baths}}, Square Feet: {{property.BldgSquareFeet}}, Last Sale Price: {{property.sales.SaleAmount | currency}}</p>
+                <p>Total Assessed: ${{(property.LandAssessed*1 + property.ImprovmentAssessed*1)}}, Taxable Total: ${{(property.LandAppraised*1 + property.ImprovmentAppraised*1)}}</p>
+            </div>
+
+            <hr />
+            </div>
+
+            <div class="text-right col-md-offset-6">
+                <div ng-show="Math.ceil((properties|filter: query).length/pageSize) != '0'">
+                   <!-- <pager total-items="totalItems" page="currentPage"></pager> -->
+                    <!--<pager boundary-links="true" total-items="totalItems" page="currentPage" class="pagination-small" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pager> -->
+                    <pager total-items="properties.length" page="currentPage"  items-per-page="4"></pager>
+
+                        Page {{currentPage}}/{{Math.ceil((properties|filter: query).length/pageSize)}}
+                    </div>
+                <div ng-show="Math.ceil((properties|filter: query).length/pageSize) == '0'">
+                    Nothing found!
+                    </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</form>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<div ng-show="resultType =='test'">
+    {{properties}}
+</div>
