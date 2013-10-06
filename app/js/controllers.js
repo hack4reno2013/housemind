@@ -8,6 +8,10 @@ angular.module('myApp.controllers', ['tableSort']).
         $scope.resultType = 'map';
 		$scope.refreshMap = false;
 		$scope.markers = new Array();
+		$scope.avgLatitude = 0;
+		$scope.avgLongitude = 0;
+		$scope.center = {latitude: $scope.avgLatitude, longitude: $scope.avgLongitude};
+		
 		var properties = Property.query(function() {
 			angular.forEach(properties, function(property) {
 				property.showDrawer = false;
@@ -19,23 +23,24 @@ angular.module('myApp.controllers', ['tableSort']).
 					property.sales = data[0];
 				});
 				$scope.markers.push({latitude: property.Latitude, longitude: property.Longitude});
+				$scope.avgLatitude += parseFloat(property.Latitude);
+				$scope.avgLongitude += parseFloat(property.Longitude);
 			});
 			$scope.refreshMap = true;
-			$scope.$apply;
-			console.log($scope.markers);
-			
+			$scope.avgLatitude = $scope.avgLatitude / properties.length;
+			$scope.avgLongitude = $scope.avgLongitude / properties.length;
+			$scope.center = {latitude: $scope.avgLatitude, longitude: $scope.avgLongitude};
 		});
 
 		$scope.properties = properties;
 		
 		angular.extend($scope, {
-			center: {
-				latitude: 39.529731, // initial map center latitude
-				longitude: -119.812828 // initial map center longitude
-			},
-			markers: $scope.markers
-			, // an array of markers,
-			zoom: 13 // the zoom level
+
+
+            center: $scope.center,
+            markers: $scope.markers, // an array of markers,
+            fit: true,
+            zoom: 13 // the zoom level
 		});
 
                         $scope.Math = window.Math;
@@ -44,14 +49,18 @@ angular.module('myApp.controllers', ['tableSort']).
                         $scope.pageSize = 4;
                         $scope.numOfPages = properties.length;
 
-                        $scope.setPage = function (pageNo) {
-                            $scope.currentPage = pageNo;
-                        };
 
 
 
 
-                }])
+		$scope.setPage = function (pageNo) {
+			$scope.currentPage = pageNo;
+		};
+
+
+
+
+	}])
 	.controller('ApiCtrl', [function() {
 
 	}])
@@ -74,7 +83,7 @@ angular.module('myApp.controllers', ['tableSort']).
 					property.sales = data;
 				});
 			});
-			$scope.property = properties[5];
+			$scope.property = properties[1];
 		});
 		
 		

@@ -754,5 +754,8 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "2830 COLUMBUS WAY",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "90023"
+	"ImprovmentAppraised": "90023",
+	"Latitude": "39.5452",
+	"Longitude": "-119.862723"
+
 }]
