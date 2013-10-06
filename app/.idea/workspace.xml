@@ -23,10 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="79" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.49861497" vertical-offset="360" max-vertical-offset="1890">
+            <state line="4" column="27" selection-start="103" selection-end="103" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="1890">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="property.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/partials/property.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="40" selection-start="288" selection-end="288" vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
@@ -44,10 +53,19 @@
       <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="18" selection-start="3784" selection-end="3784" vertical-scroll-proportion="-48.125" vertical-offset="0" max-vertical-offset="1770">
+            <state line="4" column="25" selection-start="77" selection-end="77" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="1770">
               <folding>
                 <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/partials/api.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="59" selection-start="84" selection-end="84" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="195">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -119,6 +137,7 @@
         <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/sample/Property.json" />
         <option value="$PROJECT_DIR$/partials/home.html" />
+        <option value="$PROJECT_DIR$/partials/api.html" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -395,16 +414,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="18" selection-start="3784" selection-end="3784" vertical-scroll-proportion="-48.125" vertical-offset="0" max-vertical-offset="1770">
+        <state line="4" column="25" selection-start="77" selection-end="77" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="1770">
           <folding>
             <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/partials/api.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="59" selection-start="84" selection-end="84" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="79" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.49861497" vertical-offset="360" max-vertical-offset="1890">
+        <state line="4" column="27" selection-start="103" selection-end="103" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="1890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partials/property.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="40" selection-start="288" selection-end="288" vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="1200">
           <folding />
         </state>
       </provider>
