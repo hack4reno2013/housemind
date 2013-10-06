@@ -15,6 +15,13 @@ angular.module('myApp.services', ['ngResource'])
 					phoneId:'phones'
 				},*/ 
 				isArray:true
+			},
+			get: {
+				method:'GET',
+				params: {
+					ParcelNumber: '@id'
+				},
+				isArray:true
 			}
 		});
 	})
