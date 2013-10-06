@@ -20,16 +20,7 @@ angular.module('myApp.controllers', ['tableSort']).
 		});
 
 		$scope.properties = properties;
-		
-		$scope.items = [
-			{id: "01", name: "A", price: "1.00", quantity: "1"},
-			{id: "02", name: "B", price: "10.00", quantity: "1"},
-			{id: "04", name: "C", price: "9.50", quantity: "10"},
-			{id: "03", name: "a", price: "9.00", quantity: "2"},
-			{id: "06", name: "b", price: "100.00", quantity: "2"},
-			{id: "05",name: "c", price: "1.20", quantity: "2"},
-		];
-		
+				
 		angular.extend($scope, {
 			center: {
 				latitude: 39.529731, // initial map center latitude
@@ -51,7 +42,7 @@ angular.module('myApp.controllers', ['tableSort']).
 		$scope.ParcelNumber = $scope.params.ParcelNumber;
 		
 		var properties = Property.get({ParcelNumber:$scope.ParcelNumber}, function() {
-			angular.forEach(property, function(property) {
+			angular.forEach(properties, function(property) {
 				property.showDrawer = false;
 				property.DisplayAddress1 = property.SitusNumber + " " + property.SitusStreet;
 				Building.get(property.ParcelNumber, function(data) {
@@ -61,8 +52,9 @@ angular.module('myApp.controllers', ['tableSort']).
 					property.sales = data;
 				});
 			});
+			$scope.property = properties[5];
 		});
-		console.log(property);
-		$scope.property = property;
+		
+		
 	}])	
 ;
