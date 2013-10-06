@@ -42,7 +42,9 @@ def process_args_and_select(parser,table):
 def get_where_clause(args,s,t):
     valid_args = {}
     for k in args.keys():
+        print(args[k])
         if args[k] != None:
+            print("woohooo!")
             valid_args[k] = args[k]
     print(valid_args.keys())
     for k in valid_args.keys():
