@@ -35,20 +35,20 @@ angular.module('myApp.controllers', ['tableSort']).
 			},
 			markers: $scope.markers
 			, // an array of markers,
-			zoom: 13, // the zoom level
+			zoom: 13 // the zoom level
 		});
 
-                        $scope.totalItems = 64;
-                        $scope.currentPage = 0;
-                        $scope.maxSize = 5;
-                        $scope.pageSize = 10;
+                        $scope.Math = window.Math;
+                        $scope.currentPage = 1;
+                        $scope.maxSize = 20;
+                        $scope.pageSize = 4;
+                        $scope.numOfPages = properties.length;
 
                         $scope.setPage = function (pageNo) {
                             $scope.currentPage = pageNo;
                         };
 
-                        $scope.bigTotalItems = 175;
-                        $scope.bigCurrentPage = 1;
+
 
 
                 }])

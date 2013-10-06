@@ -66,36 +66,25 @@
                 </div>
         </div>
         <div ng-show="resultType =='list'">
-            <table border="1" ts-wrapper>
-                <thead>
-                <tr>
-                    <th>Select</th>
-                    <th ts-criteria="DisplayAddress1 | lowercase" ts-default>Street Address</th>
-                    <th ts-criteria="sale_price | parseFloat">Sale Price</th>
-                    <th ts-criteria="bedroom_count | parseInt">Bedrooms</th>
-                    <th ts-criteria="bathroom_count | parseInt">Bathrooms</th>
-                    <th ts-criteria="BldgSquareFeet | parseInt">Size</th>
-                </tr>
-                </thead>
-                <tbody ng-repeat="property in properties | startFrom:0 | limitTo:10 | filter:query" ts-repeat>
-                <tr>
-                    <td><input ng-model="property.showDrawer" type="checkbox" /></td>
-                    <td><a ng-href="#/property/{{property.ParcelNumber}}" title="See property details.">{{property.DisplayAddress1}}</a></td>
-                    <td>{{property.sales.SaleAmount | currency}}</td>
-                    <td>{{property.building.Bedrooms}}</td>
-                    <td>{{property.building.Baths}}</td>
-                    <td>{{property.BldgSquareFeet}}</td>
-                </tr>
-                <tr ng-show="property.showDrawer">
-                    <td colspan=6>{{property.ParcelNumber}}</td>
-                </tr>
-                </tbody>
-            </table>
+            <div ng-repeat="property in properties | startFrom:(currentPage-1)*pageSize | limitTo:pageSize | filter:query" >
+            <!--  Service #1 -->
+            <!-- Service icon -->
+
+            <div class="service-content">
+                <!-- Title -->
+                <h5><a ng-href="#/property/{{property.ParcelNumber}}">{{property.DisplayAddress1}}</a></h5>
+                <p>Beds: {{property.building.Bedrooms}} Baths: {{property.building.Baths}}, Square Feet: {{property.BldgSquareFeet}}, Last Sale Price: {{property.sales.SaleAmount | currency}}</p>
+            </div>
+
+            <hr />
+            </div>
+
             <div class="text-right col-md-offset-6">
 
                    <!-- <pager total-items="totalItems" page="currentPage"></pager> -->
                     <!--<pager boundary-links="true" total-items="totalItems" page="currentPage" class="pagination-small" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pager> -->
-                    <pager total-items="properties.length" page="currentPage" items-per-page="5"></pager>
+                    <pager total-items="properties.length" page="currentPage"  items-per-page="4"></pager>
+                    Page {{currentPage}}/{{Math.ceil(properties.length/pageSize)}}
 
 
             </div>
@@ -103,8 +92,7 @@
 
     </div>
 </form>
-        {{properties.length}}
-        {{currentPage}}
+
 </div>
 </div>
 </div>
