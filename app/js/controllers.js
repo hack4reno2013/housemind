@@ -22,7 +22,7 @@ angular.module('myApp.controllers', ['tableSort']).
 				Sales.get(property.ParcelNumber, function(data) {
 					property.sales = data[0];
 				});
-				$scope.markers.push({latitude: property.Latitude, longitude: property.Longitude});
+				$scope.markers.push({latitude: property.Latitude, longitude: property.Longitude, infoWindow:{content: "test"}});
 				$scope.avgLatitude += parseFloat(property.Latitude);
 				$scope.avgLongitude += parseFloat(property.Longitude);
 			});
