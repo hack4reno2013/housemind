@@ -31,8 +31,9 @@ angular.module('myApp.controllers', ['tableSort']).
 		});
 
                         $scope.totalItems = 64;
-                        $scope.currentPage = 1;
+                        $scope.currentPage = 0;
                         $scope.maxSize = 5;
+                        $scope.pageSize = 10;
 
                         $scope.setPage = function (pageNo) {
                             $scope.currentPage = pageNo;
