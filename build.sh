@@ -9,6 +9,8 @@ python ./python/convert_to_csv.py ./GENERIC/Data\ Files/Areas.txt
 python ./python/convert_to_csv.py ./GENERIC/Data\ Files/Zone.txt
 python ./python/convert_to_csv.py ./GENERIC/Data\ Files/Building.txt
 python ./python/convert_to_csv.py ./GENERIC/Data\ Files/Sales.txt
+echco "flattening"
+python ./schema/flatten.py ./GENERIC/Support\ Tables/
 echo "building database"
 python ./schema/build.py
 echo "populating database"
