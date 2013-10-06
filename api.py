@@ -35,8 +35,19 @@ def params_from_query(results):
 def process_args_and_select(parser,table):
     args = parser.parse_args()
     s = select([table]).limit(10)
+    s = get_where_clause(args,s,table)
     return get_select_results(s)
 
+
+def get_where_clause(args,s,t):
+    valid_args = {}
+    for k in args.keys():
+        if args[k] != None:
+            valid_args[k] = args[k]
+    print(valid_args.keys())
+    for k in valid_args.keys():
+        s = s.where(getattr(t.c,k) == valid_args[k])
+    return s
 
 class Property(Resource):
     def get(self):
