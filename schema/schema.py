@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from sqlalchemy import MetaData, Table, Column, ForeignKey, UniqueConstraint
-from sqlalchemy.types import Integer, Date, String, Float, Integer, Boolean
+from sqlalchemy.types import Integer, Date, String, Float, Integer, Boolean, BigInteger
 
 metadata = MetaData()
 
@@ -33,8 +33,8 @@ properties = Table('properties', metadata,
     Column('Water', String),
     Column('Sewer', String),
     Column('StreetType', String),
-    Column('LandSquareFeet', Integer), # Replaces LandArea and LandUnittype
-    Column('BldgSquareFeet', Integer),
+    Column('LandSquareFeet', BigInteger), # Replaces LandArea and LandUnittype
+    Column('BldgSquareFeet', BigInteger),
     Column('NewParcelRoll', String),
     Column('InspectionDate', Date),
     Column('Closed', Boolean),
