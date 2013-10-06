@@ -1,0 +1,180 @@
+[{
+	"ParcelNumber": "001-020-00",
+	"SaleUseCode": "024",
+	"Sequence": "0",
+	"SaleDate": "07/27/2007",
+	"SaleVerificationCode": "3NTT",
+	"DocumentNumber": "MEMO",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-01",
+	"SaleUseCode": "021",
+	"Sequence": "0",
+	"SaleDate": "09/05/2012",
+	"SaleVerificationCode": "3BGG",
+	"DocumentNumber": "4148384",
+	"SaleAmount": "90000.00"
+},
+{
+	"ParcelNumber": "001-020-01",
+	"SaleUseCode": "021",
+	"Sequence": "1",
+	"SaleDate": "01/14/2002",
+	"SaleVerificationCode": "3B",
+	"DocumentNumber": "2639963",
+	"SaleAmount": "3176.00"
+},
+{
+	"ParcelNumber": "001-020-01",
+	"SaleUseCode": "021",
+	"Sequence": "2",
+	"SaleDate": "01/28/1998",
+	"SaleVerificationCode": "3NTT",
+	"DocumentNumber": "2174400",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-01",
+	"SaleUseCode": "021",
+	"Sequence": "3",
+	"SaleDate": "03/11/1988",
+	"SaleVerificationCode": "2D",
+	"DocumentNumber": "1231677",
+	"SaleAmount": "74000.00"
+},
+{
+	"ParcelNumber": "001-020-01",
+	"SaleUseCode": "021",
+	"Sequence": "4",
+	"SaleDate": "01/22/1987",
+	"SaleVerificationCode": "",
+	"DocumentNumber": "1134025",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-01",
+	"SaleUseCode": "021",
+	"Sequence": "5",
+	"SaleDate": "02/07/1986",
+	"SaleVerificationCode": "3BGG",
+	"DocumentNumber": "1051352",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-01",
+	"SaleUseCode": "021",
+	"Sequence": "6",
+	"SaleDate": "01/31/1986",
+	"SaleVerificationCode": "2MQC",
+	"DocumentNumber": "1050008",
+	"SaleAmount": "900000.00"
+},
+{
+	"ParcelNumber": "001-020-01",
+	"SaleUseCode": "021",
+	"Sequence": "7",
+	"SaleDate": "05/16/1985",
+	"SaleVerificationCode": "3BF",
+	"DocumentNumber": "997405",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-01",
+	"SaleUseCode": "021",
+	"Sequence": "8",
+	"SaleDate": "10/12/1983",
+	"SaleVerificationCode": "",
+	"DocumentNumber": "884888",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "0",
+	"SaleDate": "05/24/2005",
+	"SaleVerificationCode": "2D",
+	"DocumentNumber": "3218918",
+	"SaleAmount": "266000.00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "1",
+	"SaleDate": "08/06/2001",
+	"SaleVerificationCode": "2D",
+	"DocumentNumber": "2582641",
+	"SaleAmount": "126000.00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "2",
+	"SaleDate": "08/06/2001",
+	"SaleVerificationCode": "3NTT",
+	"DocumentNumber": "2582640",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "3",
+	"SaleDate": "06/19/1992",
+	"SaleVerificationCode": "2D",
+	"DocumentNumber": "1581131",
+	"SaleAmount": "95000.00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "4",
+	"SaleDate": "03/11/1992",
+	"SaleVerificationCode": "",
+	"DocumentNumber": "1553004",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "5",
+	"SaleDate": "12/30/1991",
+	"SaleVerificationCode": "",
+	"DocumentNumber": "1533967",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "6",
+	"SaleDate": "03/05/1987",
+	"SaleVerificationCode": "",
+	"DocumentNumber": "1144865",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "7",
+	"SaleDate": "01/22/1987",
+	"SaleVerificationCode": "",
+	"DocumentNumber": "1134025",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "8",
+	"SaleDate": "12/16/1986",
+	"SaleVerificationCode": "",
+	"DocumentNumber": "1124370",
+	"SaleAmount": ".00"
+},
+{
+	"ParcelNumber": "001-020-02",
+	"SaleUseCode": "021",
+	"Sequence": "9",
+	"SaleDate": "12/16/1986",
+	"SaleVerificationCode": "",
+	"DocumentNumber": "1124369",
+	"SaleAmount": ".00"
+}]
