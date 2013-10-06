@@ -1,62 +1,73 @@
 from flask import Flask
 from flask.ext.restful import Resource, Api
 from sqlalchemy import select
-from schema.schema import metadata, properties
+from schema.schema import metadata, properties, areas, buildings, sales, zones
 import schema.settings as settings
 from sqlalchemy import create_engine
 from api.property_arg_parser import property_parser
 from api.area_arg_parser import area_parser
 from api.building_arg_parser import building_parser
 from api.zone_arg_parser import zone_parser
-
-
+from api.sales_arg_parser import sales_parser
 
 
 app = Flask(__name__)
 api = Api(app)
 engine = create_engine(settings.DB_STRING)
 
-class Property(Resource):
-    def get(self, **kwargs):
-        args = property_parser.parse_args()
-        s = select([properties]).limit(10)
+def get_select_results(s):
+    data = None
+    with engine.begin() as conn:
+        results = conn.execute(s)
+        data = params_from_query(results)
+    return data
+
+#this is going to need to clean up some type stuff later
+def params_from_query(results):
         data = []
-        with engine.begin() as conn:
-            result = conn.execute(s)
-            for row in result:
-               rowDict = dict(zip(row.keys(), row))
-               for k in rowDict.keys():
-                   rowDict[k] = str(rowDict[k])
-               data.append(rowDict)
+        for row in results:
+            rowDict = dict(zip(row.keys(), row))
+            for k in rowDict.keys():
+                rowDict[k] = str(rowDict[k])
+                data.append(rowDict)
         return data
-    
+
+def process_args_and_select(parser,table):
+    args = parser.parse_args()
+    s = select([table]).limit(10)
+    return get_select_results(s)
+
+
+class Property(Resource):
+    def get(self):
+        return process_args_and_select(propety_parser,
+                                       properties)
 
 class Area(Resource):
     def get(self):
-        args = area_parser.parse_args()
-        return { 'Area' : 'coming soon!'}
-
+        return process_args_and_select(area_parser,
+                                       areas)
 
 class Building(Resource):
     def get(self):
-        args = building_parser.parse_args()
-        return { 'Building' : 'coming soon!'}
+        return process_args_and_select(building_parser,
+                                       buildings)
     
 class Sales(Resource):
     def get(self):
-        args = sales_parser.parse_args()
-        return { 'Sales' : 'coming soon!'}
+        return process_args_and_select(sales_parser,
+                                       sales)
 
-class Zoning(Resource):
-    def get():
-        args = zone_parser.parse_args()
-        return { 'Zoning' : 'coming soon!'}
+class Zone(Resource):
+    def get(self):
+        return process_args_and_select(zone_parser,
+                                       zones)
 
 api.add_resource(Property,'/Property/')
 api.add_resource(Area,'/Area/')
 api.add_resource(Building,'/Building/')
 api.add_resource(Sales,'/Sales/')
-api.add_resource(Zoning,'/Zoning/')
+api.add_resource(Zone,'/Zone/')
 
 if __name__ == '__main__':
     app.run(debug=True)
