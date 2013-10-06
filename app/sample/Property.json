@@ -32,7 +32,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "0"
+	"ImprovmentAppraised": "0",
+	"Latitude": "39.545154",
+	"Longitude": "-119.862624"
 },
 {
 	"LandAppraised": "10700",
@@ -68,7 +70,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "C/O RONNIE BREAZEALE",
 	"MailingAddress2": "2030 PARKWAY DR",
-	"ImprovmentAppraised": "48803"
+	"ImprovmentAppraised": "48803",
+	"Latitude": "39.5461",
+	"Longitude": "-119.868"
 },
 {
 	"LandAppraised": "10700",
@@ -104,7 +108,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "PO BOX 863",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "59581"
+	"ImprovmentAppraised": "59581",
+	"Latitude": "39.5455",
+	"Longitude": "-119.8627"
 },
 {
 	"LandAppraised": "10700",
@@ -140,7 +146,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "3947 KINGS ROW",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "59732"
+	"ImprovmentAppraised": "59732",
+	"Latitude": "39.5454",
+	"Longitude": "-119.86294"
 },
 {
 	"LandAppraised": "10700",
@@ -176,7 +184,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "3949 KINGS ROW",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "59707"
+	"ImprovmentAppraised": "59707",
+	"Latitude": "39.545154",
+	"Longitude": "-119.863"
 },
 {
 	"LandAppraised": "10700",
@@ -212,7 +222,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "880 CROCKER WAY",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "59732"
+	"ImprovmentAppraised": "59732",
+	"Latitude": "39.546",
+	"Longitude": "-119.862624"
 },
 {
 	"LandAppraised": "10700",
@@ -248,7 +260,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "206 HUERTA PLACE",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "59707"
+	"ImprovmentAppraised": "59707",
+	"Latitude": "39.545154",
+	"Longitude": "-119.8637"
 },
 {
 	"LandAppraised": "10700",
@@ -284,7 +298,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "3955 KINGS ROW",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "63873"
+	"ImprovmentAppraised": "63873",
+	"Latitude": "39.5450",
+	"Longitude": "-119.862624"
 },
 {
 	"LandAppraised": "10700",
@@ -320,7 +336,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "3957 KINGS ROW",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "66761"
+	"ImprovmentAppraised": "66761",
+	"Latitude": "39.5451",
+	"Longitude": "-119.8637"
 },
 {
 	"LandAppraised": "10700",
@@ -356,7 +374,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "910 DEMOS CT",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "66716"
+	"ImprovmentAppraised": "66716",
+	"Latitude": "39.5458",
+	"Longitude": "-119.8639"
 },
 {
 	"LandAppraised": "10700",
@@ -392,7 +412,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "PO BOX 4525",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "66593"
+	"ImprovmentAppraised": "66593",
+	"Latitude": "39.5458",
+	"Longitude": "-119.8637"
 },
 {
 	"LandAppraised": "10700",
@@ -428,7 +450,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "2300 DICKERSON RD APT 14",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "67334"
+	"ImprovmentAppraised": "67334",
+	"Latitude": "39.5457",
+	"Longitude": "-119.8636"
 },
 {
 	"LandAppraised": "10700",
@@ -464,7 +488,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "4415 JUNIPER TRL",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "63873"
+	"ImprovmentAppraised": "63873",
+	"Latitude": "39.5455",
+	"Longitude": "-119.8634"
 },
 {
 	"LandAppraised": "10700",
@@ -500,7 +526,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "3770 EL CERRO VIEW DR",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "61321"
+	"ImprovmentAppraised": "61321",
+	"Latitude": "39.5457",
+	"Longitude": "-119.8632"
 },
 {
 	"LandAppraised": "10700",
@@ -536,7 +564,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "2860 SUNLINE DR",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "61598"
+	"ImprovmentAppraised": "61598",
+	"Latitude": "39.5455",
+	"Longitude": "-119.8631"
 },
 {
 	"LandAppraised": "10700",
@@ -572,7 +602,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "PO BOX 1660",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "51755"
+	"ImprovmentAppraised": "51755",
+	"Latitude": "39.5454",
+	"Longitude": "-119.8630"
 },
 {
 	"LandAppraised": "22155",
@@ -608,7 +640,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "3950 KINGS ROW",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "95101"
+	"ImprovmentAppraised": "95101",
+	"Latitude": "39.5453",
+	"Longitude": "-119.8629"
 },
 {
 	"LandAppraised": "20045",
@@ -644,7 +678,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "2850 COLUMBUS WAY",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "76790"
+	"ImprovmentAppraised": "76790",
+	"Latitude": "39.5453",
+	"Longitude": "-119.8628"
 },
 {
 	"LandAppraised": "21100",
@@ -680,7 +716,9 @@
 	"ReappraisalCycle": "004",
 	"MailingAddress1": "2840 COLUMBUS WAY",
 	"MailingAddress2": "",
-	"ImprovmentAppraised": "76615"
+	"ImprovmentAppraised": "76615",
+	"Latitude": "39.5452",
+	"Longitude": "-119.8627"
 },
 {
 	"LandAppraised": "21100",
