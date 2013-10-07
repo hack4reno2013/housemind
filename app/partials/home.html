@@ -70,12 +70,11 @@
         <div ng-show="resultType =='list'">
 
             <div ng-repeat="property in properties | filter:query | startFrom:(currentPage-1)*pageSize | limitTo:pageSize " >
-            <!--  Service #1 -->
-            <!-- Service icon -->
+
 
             <div class="service-content">
 
-                <!-- Title -->
+
                 <h5><a ng-href="#/property/{{property.ParcelNumber}}">{{property.DisplayAddress1}}</a></h5>
                 <p>Beds: {{property.building.Bedrooms}} Baths: {{property.building.Baths}}, Square Feet: {{property.BldgSquareFeet}}, Last Sale Price: {{property.sales.SaleAmount | currency}}</p>
                 <p>Total Assessed: ${{(property.LandAssessed*1 + property.ImprovmentAssessed*1)}}, Taxable Total: ${{(property.LandAppraised*1 + property.ImprovmentAppraised*1)}}</p>
