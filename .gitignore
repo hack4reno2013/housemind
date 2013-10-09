@@ -1,2 +1,5 @@
 *.csv
 python/*.json
+*/.idea/workspace.xml
+*/.idea/tasks.xml
+	
