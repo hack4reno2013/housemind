@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import url_for, redirect
 from flask.ext.restful import Resource, Api
 from sqlalchemy import select, and_
 from schema.schema import metadata, properties, areas, buildings, sales, zones
@@ -16,6 +17,7 @@ engine = create_engine(settings.DB_STRING)
 
 def get_select_results(s):
     data = None
+    s = s.limit(1)
     with engine.begin() as conn:
         results = conn.execute(s)
         data = params_from_query(results)
@@ -33,7 +35,7 @@ def params_from_query(results):
 
 def process_args_and_select(parser,table):
     args = parser.parse_args()
-    s = select([table]).limit(10)
+    s = select([table])
     s = get_where_clause(args,s,table)
     return get_select_results(s)
 
@@ -41,13 +43,10 @@ def process_args_and_select(parser,table):
 def get_where_clause(args,s,t):
     valid_args = {}
     for k in args.keys():
-        print(args[k])
         if args[k] != None:
-            print("woohooo!")
             valid_args[k] = args[k]
     print(valid_args.keys())
     for k in valid_args.keys():
-        print(valid_args[k])
         if isinstance(valid_args[k],tuple):
             s = s.where(and_(getattr(t.c,k) >= valid_args[k][0],
                         getattr(t.c,k) <= valid_args[k][1] ))
@@ -57,8 +56,10 @@ def get_where_clause(args,s,t):
 
 class Property(Resource):
     def get(self):
-        return process_args_and_select(property_parser,
+        data =  process_args_and_select(property_parser,
                                        properties)
+        print(len(data))
+        return data
 
 class Area(Resource):
     def get(self):
@@ -80,11 +81,23 @@ class Zone(Resource):
         return process_args_and_select(zone_parser,
                                        zones)
 
+@app.route('/')
+def root():
+    return redirect(url_for('static', filename='index.html'))
+    
+    
+
+      
+
+
 api.add_resource(Property,'/Property/')
 api.add_resource(Area,'/Area/')
 api.add_resource(Building,'/Building/')
 api.add_resource(Sales,'/Sales/')
 api.add_resource(Zone,'/Zone/')
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

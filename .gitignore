@@ -3,3 +3,5 @@ python/*.json
 *.pyc
 *#
 schema/settings.py
+*/.idea/workspace.xml
+*/.idea/tasks.xml

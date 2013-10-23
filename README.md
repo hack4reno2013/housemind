@@ -1,6 +1,7 @@
 Housemind
 =========
 
+
 Let's mine the [Washoe County assessor](http://www.washoecounty.us/assessor) data!
 
 * [You can query the property database here](http://www.washoecounty.us/assessor/cama/search.php)
